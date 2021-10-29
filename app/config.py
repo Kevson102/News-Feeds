@@ -18,3 +18,4 @@ class  DevConfig(Config):
   Args:
     Config: The parent configuration class that holds the general configurations
   '''
+  DEBUG = True
