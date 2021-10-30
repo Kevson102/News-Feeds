@@ -2,7 +2,7 @@ class Article:
   '''
   This is an article class that is used to define and article object.
   '''
-  def __init__(self, id, author, description, urlToImage, url):
+  def __init__(self, id, author, description, urlToImage, url, publishedAt):
     '''
     Method that initializes an article object
     Args:
@@ -17,3 +17,4 @@ class Article:
     self.description = description
     self.urlToImage = urlToImage
     self.url = url
+    self.publishedAt = publishedAt

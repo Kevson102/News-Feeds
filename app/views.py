@@ -13,7 +13,7 @@ def index():
   title = 'Welcome to the most credible news platform | NewsPap'
   return render_template('index.html', title=title, sources = news_sources)
 
-@app.route('/articles/<int:id>')
+@app.route('/articles/<id>')
 def articles(id):
   '''
   View function that returns the news details page and its respective data.

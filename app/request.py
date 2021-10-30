@@ -28,11 +28,11 @@ def get_news_sources():
     
     if get_news_source_response['sources']:
       news_source_results_list = get_news_source_response['sources']
-      news_source_results =  process_results (news_source_results_list)
+      news_source_results =  process_source_results (news_source_results_list)
       
   return news_source_results
 
-def process_results(news_source_list):
+def process_source_results(news_source_list):
   '''
   function that process the news source results and transforms them into a list of objects.
   Args:
@@ -59,18 +59,31 @@ def get_news_source_articles(id):
   get_news_source_articles_url = source_base_url.format(id,api_key)
   
   with urllib.request.urlopen(get_news_source_articles_url) as url:
-    news_source_articles_data = url.read()
-    news_source_articles_response = json.loads(news_source_articles_data)
+    get_news_source_articles_data = url.read()
+    get_news_source_articles_response = json.loads(get_news_source_articles_data)
     
-    news_source_article_object = None
+    news_source_article_results = None
     
-    if news_source_articles_response:
-      id = news_source_articles_response.get('id')
-      author = news_source_articles_response.get('author')
-      description = news_source_articles_response.get('description')
-      image = news_source_articles_response.get('urlToImage')
-      url = news_source_articles_response.get('url')
+    if get_news_source_articles_response['articles']:
+      news_source_article_results_list = get_news_source_articles_response['articles']
+      news_source_article_results = process_article_results(news_source_article_results_list)
       
-      news_source_article_object = Article(id, author, description, image, url)
-      
-  return news_source_article_object
+  return news_source_article_results
+
+def process_article_results(news_source_article_list):
+  
+  news_source_article_results = []
+  
+  for news_source_article_item in news_source_article_list:
+    
+    id = news_source_article_item.get('id')
+    author = news_source_article_item.get('author')
+    description = news_source_article_item.get('description')
+    image = news_source_article_item.get('urlToImage')
+    link = news_source_article_item.get('url')
+    publishedAt = news_source_article_item.get('publishedAt')
+    
+    if image:
+      news_source_article_object = Article(id, author, description, image, link, publishedAt)
+      news_source_article_results.append(news_source_article_object)
+  return news_source_article_results
