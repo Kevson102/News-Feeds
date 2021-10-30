@@ -3,43 +3,49 @@
 <!-- Content block -->
 {% block content %}
     <!-- News Sources Section -->
-    <h1>General NEWS SOURCES</h1>
-    <ul>
-      {% for news_source in sources %}
-        {% if news_source.category == "general" %}
-          <li>
-            <a href="/articles/{{news_source.id}}">
-              {{news_source.name}} -----------> {{news_source.category}} ------------>{{news_source.id}}
-            </a>
-          </li>
-        {%endif%}
-      {% endfor %}
-    </ul>
+<div class="container">
+  <h1>General NEWS SOURCES</h1>
+  <div>
+    {% for news_source in sources %}
+      {% if news_source.category == "general" %}
 
-    <h1>Technology News Sources</h1>
-    <ul>
-      {% for news_source in sources %}
-        {% if news_source.category == "technology" %}
-          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
-        {%endif%}
-      {% endfor %}
-    </ul>
+        <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
 
-    <h1>Business News Sources</h1>
-    <ul>
-      {% for news_source in sources %}
-        {% if news_source.category == "business" %}
-          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
-        {%endif%}
-      {% endfor %}
-    </ul>
+      {%endif%}
+    {% endfor %}
+  </div>
 
-    <h1>Sports News Sources</h1>
-    <ul>
-      {% for news_source in sources %}
-        {% if news_source.category == "sports" %}
-          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
-        {%endif%}
-      {% endfor %}
-    </ul>
+  <h1>Technology News Sources</h1>
+  <div>
+    {% for news_source in sources %}
+      {% if news_source.category == "technology" %}
+
+        <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
+
+      {%endif%}
+    {% endfor %}
+  </div>
+
+  <h1>Business News Sources</h1>
+  <div>
+    {% for news_source in sources %}
+      {% if news_source.category == "business" %}
+
+        <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
+
+      {%endif%}
+    {% endfor %}
+  </div>
+
+  <h1>Sports News Sources</h1>
+  <div>
+    {% for news_source in sources %}
+      {% if news_source.category == "sports" %}
+
+        <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
+
+      {%endif%}
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

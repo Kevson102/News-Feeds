@@ -1,8 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>ARTICLE PAGE WORKS  :)</h1>
+
 {% for article in articles%}
-<li> {{article.author}} </li>
+<div class="container text-center">
+  <div class="row card-body">
+
+    <div class="col-sm-5">
+      <a href="{{article.url}}" target="_blank">{{article.title}}</a>
+      <br>
+      <img src="{{article.urlToImage}}" alt="Article image" height="100px">
+      <hr>
+    </div>
+
+    <div class="col-md-6">
+      <b><i>Brief desctiption</i></b>
+      <br>
+      {{article.description}}
+      <br>
+      <br>
+      <small><p><strong>Published:</strong><b><i>{{article.publishedAt}}</i></b></p></small>
+    </div>
+
+  </div>
+</div>
 {% endfor %}
+
 {% endblock %}
