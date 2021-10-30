@@ -9,12 +9,16 @@
 {% endnacro %} -->
 <!-- #################################################### -->
 
-<!-- {% macro displayTechnologyNewsSources() %}
+{% macro displayArticlesInSource(source_list) %}
 
-  {% for news_source in sources %}
-    {% if news_source.category == "technology" %}
-      <li>{{news_source.name}} </li>
-    {%endif%}
+  {% for source in source_list %}
+    <div>
+      <li class="text-center">
+        <a href="/news/{{source.id}}">
+        {{source.name}}
+        </a>
+      </li>
+    </div>
   {% endfor %}
 
-{% endnacro %} -->
+{% endnacro %}

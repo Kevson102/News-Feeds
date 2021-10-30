@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news_sources
+from .request import get_news_sources,get_news_source_articles
 
 #Views
 @app.route('/')
@@ -13,10 +13,11 @@ def index():
   title = 'Welcome to the most credible news platform | NewsPap'
   return render_template('index.html', title=title, sources = news_sources)
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@app.route('/articles/<int:id>')
+def articles(id):
   '''
   View function that returns the news details page and its respective data.
   '''
-  title = 'Headline Description'
-  return render_template('news.html', id = news_id, title=title)
+  articles = get_news_source_articles(id)
+  title = 'Source Articles'
+  return render_template('articles.html', title=title, articles = articles)

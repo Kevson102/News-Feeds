@@ -7,7 +7,7 @@
     <ul>
       {% for news_source in sources %}
         {% if news_source.category == "general" %}
-          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
+          <li>{{news_source.name}} -----------> {{news_source.category}} ------------>{{news_source.id}}</li>
         {%endif%}
       {% endfor %}
     </ul>
