@@ -3,7 +3,7 @@ class Config():
   This is the general configuration class
   '''
   NEWS_API_BASE_URL = 'https://newsapi.org/v2/everything?q={}&sortBy=popularity&apiKey={}'
-  NEWS_SOURCE_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
+  NEWS_SOURCE_API_BASE_URL = 'https://newsapi.org/v2/top-headlines/sources?apiKey={}'
 
 class ProdConfig(Config):
   '''

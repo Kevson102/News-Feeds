@@ -9,6 +9,42 @@
     {% endif %}
   </head>
   <body>
-    <h1>HOME PAGE WORKS</h1>
+    <!-- <h1>HOME PAGE WORKS</h1> -->
+    <!-- News Sources Section -->
+    <h1>General NEWS SOURCES</h1>
+    <ul>
+      {% for news_source in sources %}
+        {% if news_source.category == "general" %}
+          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
+        {%endif%}
+      {% endfor %}
+    </ul>
+
+    <h1>Technology News Sources</h1>
+    <ul>
+      {% for news_source in sources %}
+        {% if news_source.category == "technology" %}
+          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
+        {%endif%}
+      {% endfor %}
+    </ul>
+
+    <h1>Business News Sources</h1>
+    <ul>
+      {% for news_source in sources %}
+        {% if news_source.category == "business" %}
+          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
+        {%endif%}
+      {% endfor %}
+    </ul>
+
+    <h1>Sports News Sources</h1>
+    <ul>
+      {% for news_source in sources %}
+        {% if news_source.category == "sports" %}
+          <li>{{news_source.name}} -----------> {{news_source.category}} </li>
+        {%endif%}
+      {% endfor %}
+    </ul>
   </body>
 </html>
