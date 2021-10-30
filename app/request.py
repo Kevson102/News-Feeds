@@ -1,21 +1,24 @@
 from app import app
 import urllib.request,json
-from .models import news
+from .models import news, articles
 from instance import config
 
 News = news.News
+Article = articles.Article
 
 # Getting the api key
 api_key = config.NEWS_API_KEY
 
 # Getting the news source base url
+sources_base_url = app.config['NEWS_SOURCES_API_BASE_URL']
 source_base_url = app.config['NEWS_SOURCE_API_BASE_URL']
+
 
 def get_news_sources():
   '''
   Function that gets the json response to the url request.
   '''
-  get_news_source_url = source_base_url.format(api_key)
+  get_news_source_url = sources_base_url.format(api_key)
     
   with urllib.request.urlopen(get_news_source_url) as url:
     get_news_source_data = url.read()
@@ -48,4 +51,26 @@ def process_results(news_source_list):
       news_source_results.append(news_source_object)
       
   return news_source_results
+
+def get_news_source_articles(id):
+  '''
+  Function that gets the json response to the url request.
+  '''
+  get_news_source_articles_url = source_base_url.format(id,api_key)
+  
+  with urllib.request.urlopen(get_news_source_articles_url) as url:
+    news_source_articles_data = url.read()
+    news_source_articles_response = json.loads(news_source_articles_data)
     
+    news_source_article_object = None
+    
+    if news_source_articles_response:
+      id = news_source_articles_response.get('id')
+      author = news_source_articles_response.get('author')
+      description = news_source_articles_response.get('description')
+      image = news_source_articles_response.get('urlToImage')
+      url = news_source_articles_response.get('url')
+      
+      news_source_article_object = Article(id, author, description, image, url)
+      
+  return news_source_article_object
