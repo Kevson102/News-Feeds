@@ -1,0 +1,28 @@
+
+.general{
+  max-height: 955px;
+  overflow-y:scroll;
+}
+.general, .business, .sports, .technology{
+  border: 1px solid black;
+  background-color: antiquewhite;
+}
+.general>div>p{
+  margin: 0;
+ }
+ .row1{
+   display:flex;
+   justify-content: space-between;
+ }
+ /* .technology{
+   margin-left: auto;
+   margin-right: auto;
+ } */
+ .sports{
+   clear: both;
+   margin-top: 20px;
+   /* color:darkkhaki;
+   background-color:rgb(30, 30, 132); */
+   /* background-image: url("../images/sports.jpg"); */
+   /* app/static/images/sports.jpg */
+ }

@@ -1,5 +1,12 @@
 {% extends 'bootstrap/base.html'%}
 
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+{% endblock %}
+
 <!-- Navbar block  --> 
 {% block navbar %}
     {% include 'navbar.html' %}
@@ -15,7 +22,7 @@
       <title>Welcome to NewsPap</title>
     {% endif %}
   </head>
-  <body>
+  <body class="body">
     <!-- Content block -->
     {% block content %}
 

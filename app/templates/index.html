@@ -1,51 +1,54 @@
 {% extends 'base.html' %}
 
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
 <!-- Content block -->
 {% block content %}
     <!-- News Sources Section -->
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
-      <b>General News Sources</b>
-      <div>
-        {% for news_source in sources %}
-          {% if news_source.category == "general" %}
-    
-            <p><small><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></small></p>
-    
-          {%endif%}
-        {% endfor %}
-      </div>
-    </div>
 
-    <div class="col-sm-9">
-      <div class="col-md-4">
-        <b>Business News Sources</b>
-        <div>
-          {% for news_source in sources %}
-            {% if news_source.category == "business" %}
+    <div class="col-sm-10 col-md-10 text-center">
+
+      <div>
+        <h3>Welcome To Phoenix News Feeds</h3>
+        <h5>ALL YOUR NEWS IN ONE PLACE</h5>
+      </div>
+      <div class="row1">
+
+        <div class="col-sm-5 col-md-5 business">
+          <b>Business News Sources</b>
+          <div>
+            {% for news_source in sources %}
+              {% if news_source.category == "business" %}
+        
+                <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
+        
+              {%endif%}
+            {% endfor %}
+          </div>
+        </div>
       
-              <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
-      
-            {%endif%}
-          {% endfor %}
+        <div class="col-md-6 col-sm-6 technology">
+          <b>Technology News Sources</b>
+          <div>
+            {% for news_source in sources %}
+              {% if news_source.category == "technology" %}
+        
+                <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
+        
+              {%endif%}
+            {% endfor %}
+          </div>
         </div>
       </div>
-    
-      <div class="col-md-4">
-        <b>Technology News Sources</b>
-        <div>
-          {% for news_source in sources %}
-            {% if news_source.category == "technology" %}
-      
-              <p><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></p>
-      
-            {%endif%}
-          {% endfor %}
-        </div>
-      </div>
-    
-      <div class="col-md-4">
+
+      <div class="sports">
         <b>Sports News Sources</b>
         <div>
           {% for news_source in sources %}
@@ -56,6 +59,20 @@
             {%endif%}
           {% endfor %}
         </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-2 col-md-2 general">
+      <b>General News Sources</b>
+      <div>
+        {% for news_source in sources %}
+          {% if news_source.category == "general" %}
+    
+            <p><small><a href="/articles/{{news_source.id}}">{{news_source.name}}</a></small></p>
+    
+          {%endif%}
+        {% endfor %}
       </div>
     </div>
   </div>
