@@ -10,20 +10,26 @@
 {% block content %}
 
 {% for article in articles%}
+
 <div class="container text-center ">
   <div class="row card">
 
     <div class="col-sm-5">
       <a href="{{article.url}}" target="_blank">{{article.title}}</a>
       <br>
-      <img src="{{article.urlToImage}}" alt="Article image" height="150px">
+      <img src="{{article.urlToImage}}" alt="Article image Is Unavailable" height="150px">
       <hr>
     </div>
 
     <div class="col-md-6">
       <b><i>Brief description</i></b>
       <br>
-      {{article.description}}
+
+      {% if article.description %}
+        {{article.description}}
+      {%else%}
+        <p>Ooops! This article dont have a description</p>
+      {%endif%}
       <br>
       <br>
       <small><p><strong>Published:</strong><b><i>{{article.publishedAt}}</i></b></p></small>

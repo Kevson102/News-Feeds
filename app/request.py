@@ -75,6 +75,7 @@ def process_article_results(news_source_article_list):
   news_source_article_results = []
   
   for news_source_article_item in news_source_article_list:
+    name = news_source_article_item.get("source")
     title = news_source_article_item.get('title')
     id = news_source_article_item.get('id')
     author = news_source_article_item.get('author')
@@ -84,6 +85,6 @@ def process_article_results(news_source_article_list):
     publishedAt = news_source_article_item.get('publishedAt')
     
     if image:
-      news_source_article_object = Article(title, id, author, description, image, link, publishedAt)
+      news_source_article_object = Article(name, title, id, author, description, image, link, publishedAt)
       news_source_article_results.append(news_source_article_object)
   return news_source_article_results
