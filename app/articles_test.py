@@ -10,12 +10,13 @@ class NewsTest (unittest.TestCase):
     '''
     set up method which will be running before every testcase.
     '''
-    self.new_source_article = Articles("kevson", "kelvin kimani", "technology", "qwertyu", "trewq", '1254')
+    self.new_source_article = Articles("best article","kevson", "kelvin kimani", "technology", "qwertyu", "trewq", '1254')
   
   def test_init(self):
     '''
     test instance to check whether the object is initialized as expected
     ''' 
+    self.assertEqual(self.new_source_article.title, 'best article')
     self.assertEqual(self.new_source_article.id, 'kevson')
     self.assertEqual(self.new_source_article.author, 'kelvin kimani')
     self.assertEqual(self.new_source_article.description, 'technology')
