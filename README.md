@@ -62,7 +62,7 @@ Werkzeug==1.0.1
 * Create start.sh file in the root directory and in it write the following lines:
 ```
  export NEWS_API_KEY='<Your-Api-Key>'
- python3.8 manage.py server
+ python3.9 manage.py server
 ```
 * Run ```chmod +x start.sh``` follwoed by ``` ./start.sh ``` while in the project folder to start the project.
 * Once started, the project can be accessed on your localhost using the address: ``` http://127.0.0.1:5000/```
